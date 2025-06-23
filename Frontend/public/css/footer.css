@@ -1,0 +1,252 @@
+
+.footer {
+    background-color: var(--primary-color); /* Deep Black background from your root */
+    color: var(--bg-light); /* White text for contrast */
+    padding: var(--space-xxl) var(--space-md); /* Adjusted padding using your spacing vars */
+    font-family: var(--font-family-sans);
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-body);
+    border-top: 1px solid rgba(255, 255, 255, 0.08); /* Subtle white line on black */
+}
+
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--space-lg) var(--space-md); /* Gap adjusted to new spacing vars */
+    padding-bottom: var(--space-lg);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15); /* Slightly stronger white separator */
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 220px;
+    padding: var(--space-xs); /* Reduced internal padding slightly for sleekness */
+}
+
+.footer-section h3 {
+    font-family: var(--font-family-sans); /* Use Urbanist for headings */
+    font-size: 1.1rem; /* Slightly smaller for tighter, sleek look */
+    font-weight: 700; /* Bold */
+    color: var(--secondary-color); /* Vibrant Red for headings - ASOS accent! */
+    margin-bottom: var(--space-md); /* Space below headings */
+    text-transform: uppercase;
+    letter-spacing: 0.05em; /* Subtle letter spacing */
+}
+
+.footer-section p {
+    margin-bottom: var(--space-sm);
+    color: var(--text-light); /* Lighter grey for descriptions, contrasts well on black */
+    font-size: 0.95em; /* Slightly smaller body text in footer */
+}
+
+/* Links within footer sections */
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: var(--space-xxs); /* Tighter spacing for links */
+}
+
+.footer-section ul li a {
+    color: var(--bg-light); /* White links for high contrast on black */
+    text-decoration: none;
+    transition: color var(--transition-speed) var(--transition-timing);
+    font-weight: 400;
+    font-size: 0.9em; /* Slightly smaller link text */
+}
+
+.footer-section ul li a:hover {
+    color: var(--secondary-color); /* Vibrant Red on hover */
+    text-decoration: underline;
+}
+
+/* Social Links */
+.social-links {
+    margin-top: var(--space-md);
+    display: flex;
+    gap: var(--space-sm);
+}
+
+.social-links a {
+    color: var(--text-light); /* Muted grey for icons initially */
+    font-size: 1.5rem;
+    transition: color var(--transition-speed) var(--transition-timing),
+                transform var(--transition-speed) var(--transition-timing);
+}
+
+.social-links a:hover {
+    color: var(--secondary-color); /* Vibrant Red on hover */
+    transform: translateY(-2px);
+}
+
+/* Newsletter Form - Adapted for ASOS style */
+.newsletter-form {
+    display: flex;
+    margin-top: var(--space-md);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.1); /* Subtle white transparency on black */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Slightly more defined border */
+}
+
+.newsletter-form input {
+    flex-grow: 1;
+    padding: var(--space-sm); /* Adjusted padding */
+    border: none;
+    background-color: transparent;
+    color: var(--bg-light); /* White input text */
+    font-size: var(--font-size-body);
+    outline: none;
+    font-family: var(--font-family-sans);
+}
+.newsletter-form input::placeholder {
+    color: rgba(255, 255, 255, 0.6); /* Clearer placeholder on dark background */
+}
+
+.newsletter-form button {
+    padding: var(--space-sm) var(--space-md);
+    background-color: var(--secondary-color); /* Vibrant Red button */
+    color: var(--bg-light); /* White text on button */
+    border: none;
+    cursor: pointer;
+    font-size: var(--font-size-body);
+    font-weight: 600;
+    transition: background-color var(--transition-speed) var(--transition-timing);
+    font-family: var(--font-family-sans);
+}
+
+.newsletter-form button:hover {
+    background-color: #a30018; /* Darker red on hover */
+}
+
+/* Payment Methods */
+.payment-heading {
+    margin-top: var(--space-xl); /* More space above payment methods */
+    font-weight: 600;
+    color: var(--text-light); /* Matches other subtle text */
+    font-size: 0.9em;
+}
+.payment-methods {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-top: var(--space-xs);
+}
+
+.payment-methods i {
+    font-size: 2.2rem; /* Consistent large size for payment icons */
+    color: var(--bg-light); /* White icons for clarity */
+    opacity: 0.8; /* Slightly muted initially for subtle look */
+    transition: opacity var(--transition-speed) var(--transition-timing);
+}
+.payment-methods i:hover {
+    opacity: 1; /* Fully opaque on hover */
+    color: var(--secondary-color); /* Vibrant Red on hover */
+}
+
+
+/* Footer Bottom Bar (Copyright etc.) */
+.footer-bottom {
+    max-width: 1400px;
+    margin: var(--space-lg) auto 0;
+    padding-top: var(--space-md);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-light); /* Use text-light for copyright for clear readability */
+    font-size: 0.8em; /* Smaller copyright text */
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+
+/* =====================================
+ * FOOTER RESPONSIVENESS (Adjusted for new spacing)
+ * ===================================== */
+
+/* Tablet & Smaller Desktop */
+@media (max-width: 1024px) {
+    .footer-container {
+        gap: var(--space-lg) var(--space-md);
+        justify-content: flex-start;
+    }
+    .footer-section {
+        min-width: 180px; /* Slightly smaller min-width for columns */
+        flex-basis: calc(50% - var(--space-md) / 2); /* Two columns */
+        padding: var(--space-xs);
+    }
+    .footer-bottom {
+        padding: var(--space-md) var(--space-sm);
+        flex-direction: column;
+        text-align: center;
+        gap: var(--space-sm);
+    }
+}
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+    .footer {
+        padding: var(--space-lg) var(--space-sm); /* Reduced padding for mobile */
+    }
+    .footer-container {
+        flex-direction: column;
+        gap: var(--space-lg);
+        padding-bottom: var(--space-md);
+    }
+    .footer-section {
+        min-width: 100%;
+        padding: var(--space-sm) 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* Subtle separator */
+    }
+    .footer-section:last-child {
+        border-bottom: none;
+    }
+    .footer-bottom {
+        padding: var(--space-md) 0;
+        font-size: 0.7em;
+    }
+    /* Newsletter form specific adjustments for mobile stacking */
+    .newsletter-form {
+        flex-direction: column;
+        border: none;
+        background-color: transparent;
+    }
+    .newsletter-form input,
+    .newsletter-form button {
+        border-radius: var(--radius-sm);
+        width: 100%;
+        margin-bottom: var(--space-xs);
+        background-color: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .newsletter-form button {
+        margin-bottom: 0;
+        background-color: var(--secondary-color);
+        border: none;
+    }
+    .payment-methods {
+        justify-content: center;
+    }
+}
+
+/* Extra Small Devices */
+@media (max-width: 480px) {
+    .footer-section h3 {
+        font-size: 1rem;
+    }
+    .social-links a {
+        font-size: 1.3rem;
+    }
+    .payment-methods i {
+        font-size: 2rem;
+    }
+}

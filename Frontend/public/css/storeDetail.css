@@ -1,0 +1,503 @@
+/* =====================================
+ * STORE DETAILS PAGE
+ * ===================================== */
+.store-details {
+    padding: var(--space-xl);
+    background: var(--bg-white);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 6px 20px var(--shadow-light); /* Subtler initial shadow */
+    margin-bottom: var(--space-xxl);
+    max-width: 1400px;
+    margin: var(--space-xxl) auto;
+    border: 1px solid var(--border-color);
+    /* Removed transform and box-shadow transition for the main container hover */
+    transition: border-color var(--transition-speed-normal) var(--transition-timing); /* Only transition border on hover if desired */
+}
+
+/* Removed specific hover effect for .store-details */
+.store-details:hover {
+    /* No transform or box-shadow change here for a less dynamic container */
+    /* You could add a subtle border color change if you like: */
+    /* border-color: var(--primary-color); */
+}
+
+.store-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xxl);
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-lg);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.store-details-logo {
+    width: 160px;
+    height: 160px;
+    border-radius: var(--radius-full);
+    border: 4px solid var(--primary-color); /* Slightly thinner border for elegance */
+    box-shadow: 0 3px 12px var(--shadow-medium); /* Subtler logo shadow */
+    flex-shrink: 0;
+    object-fit: cover;
+    transition: border-color var(--transition-speed-normal) var(--transition-timing); /* Only border color change on hover */
+}
+.store-details-logo:hover {
+    /* Removed transform scale on hover for more subtlety */
+    border-color: var(--primary-dark); /* Darken border on hover */
+}
+
+.store-details-info h1 {
+    font-size: clamp(2.5rem, 4.5vw, 4rem);
+    color: var(--text-dark);
+    margin-bottom: var(--space-md);
+    line-height: 1.2;
+    font-weight: 800;
+}
+
+.store-details-info p {
+    font-size: 1.05rem;
+    color: var(--text-medium);
+    margin-bottom: var(--space-sm);
+    line-height: 1.6;
+}
+
+.store-details-info p strong {
+    color: var(--text-dark);
+    min-width: 130px;
+    display: inline-block;
+    font-weight: 700;
+}
+
+.add-dress-btn {
+    margin-top: var(--space-xl);
+    display: inline-flex;
+    padding: var(--space-md) var(--space-lg);
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    background-color: var(--accent-color);
+    color: var(--bg-white);
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); /* Subtler button shadow */
+    transition: background-color var(--transition-speed-fast) var(--transition-timing),
+                box-shadow var(--transition-speed-fast) var(--transition-timing),
+                transform var(--transition-speed-fast) var(--transition-timing); /* Included transform for subtle press */
+}
+.add-dress-btn:hover {
+    background-color: var(--accent-dark);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Slightly more prominent shadow on hover */
+    transform: translateY(-1px); /* Very subtle lift on hover */
+}
+.add-dress-btn:active { /* Added active state for a 'pressed' feel */
+    transform: translateY(1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15) inset;
+}
+
+
+.section-title {
+    text-align: center;
+    font-size: clamp(2.2rem, 3.8vw, 3.5rem);
+    margin: var(--space-xxl) 0 var(--space-xl);
+    color: var(--primary-color);
+    font-weight: 900;
+    position: relative;
+    letter-spacing: -0.02em;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 90px;
+    height: 5px;
+    background: var(--primary-color);
+    margin: var(--space-sm) auto;
+    border-radius: 3px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Dress Grid */
+.dress-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-xl);
+}
+
+.dress-card {
+    background: var(--bg-white);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: 0 4px 15px var(--shadow-light); /* Subtler initial shadow */
+    transition: box-shadow var(--transition-speed-normal) var(--transition-timing); /* Only shadow transition */
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border-color);
+    position: relative; /* Needed for the subtle creative element */
+    z-index: 1; /* Ensure shadow works correctly */
+}
+
+.dress-card::before { /* Creative subtle background element */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(var(--primary-color-rgb), 0.03) 0%, rgba(255,255,255,0) 50%, rgba(var(--primary-color-rgb), 0.01) 100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-speed-normal) var(--transition-timing);
+    z-index: -1; /* Behind content */
+}
+
+.dress-card:hover {
+    /* Removed transform lift */
+    box-shadow: 0 8px 25px var(--shadow-medium); /* Subtler hover shadow */
+}
+
+.dress-card:hover::before { /* Activate subtle background on hover */
+    opacity: 1;
+}
+
+.dress-image {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    cursor: pointer;
+    /* Removed transform zoom on hover for subtlety */
+    transition: filter var(--transition-speed-normal) var(--transition-timing); /* Only filter blur on hover */
+    border-bottom: 1px solid var(--border-color);
+}
+
+.dress-card:hover .dress-image {
+    /* Removed transform scale */
+    filter: brightness(0.95); /* Very subtle darkening on hover */
+}
+
+.dress-card-content {
+    padding: var(--space-lg);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.dress-card h3 {
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    color: var(--text-dark);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: var(--space-sm);
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.dress-card p {
+    font-size: 0.95rem;
+    color: var(--text-medium);
+    flex-grow: 1;
+    margin-bottom: var(--space-md);
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dress-card .btn {
+    margin-top: auto;
+    width: 100%;
+    padding: var(--space-sm) var(--space-md);
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    /* Ensure global btn styles are applied, or define specifically if needed */
+    /* Example for default button style: */
+    /* background-color: var(--primary-color);
+    color: var(--bg-white);
+    border: none;
+    cursor: pointer;
+    transition: background-color var(--transition-speed-fast) var(--transition-timing), transform var(--transition-speed-fast) var(--transition-timing); */
+}
+.dress-card .btn:hover {
+    /* Subtle hover for card buttons */
+    background-color: var(--primary-dark);
+    transform: translateY(-1px);
+}
+.dress-card .btn:active {
+    transform: translateY(1px);
+}
+
+
+/* Lightbox for images (Unchanged - these dynamic effects are desired for a modal) */
+.lightbox {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-lg);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity var(--transition-speed-normal) var(--transition-timing),
+                visibility var(--transition-speed-normal) var(--transition-timing);
+}
+
+.lightbox.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.lightbox img {
+    max-width: 95%;
+    max-height: 90vh;
+    border-radius: var(--radius-md);
+    box-shadow: 0 15px 50px var(--shadow-strong);
+    object-fit: contain;
+    transition: transform var(--transition-speed-normal) var(--transition-timing);
+}
+
+.lightbox.active img {
+    transform: scale(1);
+}
+
+.lightbox .close-btn {
+    position: absolute;
+    top: var(--space-xl);
+    right: var(--space-xl);
+    color: var(--bg-white);
+    font-size: 3rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: var(--space-sm);
+    border-radius: var(--radius-full);
+    transition: transform 0.3s var(--transition-timing), background-color 0.3s var(--transition-timing);
+    z-index: 2001;
+    opacity: 0.8;
+}
+
+.lightbox .close-btn:hover {
+    transform: scale(1.1) rotate(90deg);
+    background-color: rgba(255, 255, 255, 0.1);
+    opacity: 1;
+}
+
+/* --- Responsive Adjustments (Mostly Unchanged, as they were already robust) --- */
+@media (max-width: 1200px) {
+    .store-details {
+        padding: var(--space-xl);
+        margin: var(--space-xl) auto;
+    }
+    .dress-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: var(--space-lg);
+    }
+    .dress-image {
+        height: 240px;
+    }
+}
+
+@media (max-width: 992px) { /* Tablets and smaller */
+    .store-details {
+        padding: var(--space-lg);
+        margin: var(--space-lg) auto;
+        border-radius: var(--radius-md);
+    }
+
+    .store-header {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--space-lg);
+        margin-bottom: var(--space-xl);
+        padding-bottom: var(--space-md);
+    }
+
+    .store-details-logo {
+        width: 140px;
+        height: 140px;
+        margin-bottom: var(--space-sm);
+    }
+
+    .store-details-info h1 {
+        font-size: clamp(2rem, 5vw, 3rem);
+        margin-bottom: var(--space-sm);
+    }
+    .store-details-info p {
+        font-size: 0.95rem;
+    }
+    .store-details-info p strong {
+        display: block;
+        min-width: unset;
+        margin-bottom: var(--space-xxs);
+    }
+
+    .add-dress-btn {
+        margin-top: var(--space-lg);
+        font-size: 1rem;
+        padding: var(--space-sm) var(--space-md);
+    }
+
+    .section-title {
+        font-size: clamp(1.8rem, 5vw, 2.5rem);
+        margin: var(--space-xl) 0 var(--space-lg);
+    }
+    .section-title::after {
+        width: 60px;
+        height: 4px;
+    }
+
+    .dress-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: var(--space-md);
+    }
+    .dress-image {
+        height: 200px;
+    }
+    .dress-card-content {
+        padding: var(--space-md);
+    }
+    .dress-card h3 {
+        font-size: clamp(1.1rem, 3vw, 1.25rem);
+    }
+    .dress-card p {
+        font-size: 0.85rem;
+    }
+
+    .lightbox img {
+        max-width: 95%;
+        max-height: 80vh;
+    }
+    .lightbox .close-btn {
+        font-size: 2rem;
+        top: var(--space-md);
+        right: var(--space-md);
+    }
+}
+
+@media (max-width: 576px) { /* Smaller phones */
+    .store-details {
+        padding: var(--space-md);
+        margin: var(--space-lg) var(--space-md);
+    }
+
+    .store-details-logo {
+        width: 100px;
+        height: 100px;
+        border: 3px solid var(--primary-color);
+    }
+
+    .store-details-info h1 {
+        font-size: clamp(1.8rem, 7vw, 2.5rem);
+    }
+    .store-details-info p {
+        font-size: 0.9rem;
+    }
+
+    .add-dress-btn {
+        width: 100%;
+        text-align: center;
+        padding: var(--space-md) var(--space-lg);
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: clamp(1.6rem, 7vw, 2.2rem);
+        margin: var(--space-xl) 0 var(--space-md);
+    }
+    .section-title::after {
+        width: 50px;
+    }
+
+    .dress-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: var(--space-md);
+    }
+    .dress-image {
+        height: 160px;
+    }
+    .dress-card h3 {
+        font-size: clamp(1rem, 4vw, 1.15rem);
+    }
+    .dress-card p {
+        font-size: 0.8rem;
+    }
+
+    .lightbox img {
+        max-width: 98%;
+        max-height: 75vh;
+    }
+    .lightbox .close-btn {
+        font-size: 1.8rem;
+        top: var(--space-xs);
+        right: var(--space-xs);
+    }
+}
+
+/* --- Back Button Styles --- */
+.back-button-container {
+    max-width: 1400px; /* Match the max-width of your .store-details for alignment */
+    margin: var(--space-xl) auto var(--space-lg); /* Top, auto horizontal, more space below */
+    padding: 0 var(--space-xl); /* Match horizontal padding of main content */
+}
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs); /* Space between icon and text */
+    padding: var(--space-sm) var(--space-md);
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+    background-color: var(--bg-white); /* White background */
+    color: var(--text-medium); /* Muted text color */
+    border: 1px solid var(--border-color); /* Light border */
+    transition: all var(--transition-speed-fast) var(--transition-timing);
+    box-shadow: 0 2px 8px var(--shadow-extra-light); /* Very subtle shadow */
+}
+
+.back-button:hover {
+    background-color: var(--bg-light); /* Light background on hover */
+    color: var(--primary-color); /* Primary color text on hover */
+    border-color: var(--primary-color); /* Primary border on hover */
+    transform: translateY(-1px); /* Subtle lift */
+    box-shadow: 0 4px 12px var(--shadow-light); /* Slightly more prominent shadow */
+}
+
+.back-button:active {
+    transform: translateY(0); /* Press down effect */
+    box-shadow: 0 1px 5px var(--shadow-extra-light) inset;
+}
+
+.back-button i {
+    font-size: 1.1rem; /* Slightly larger icon */
+}
+
+/* Responsive adjustments for the back button */
+@media (max-width: 992px) {
+    .back-button-container {
+        padding: 0 var(--space-lg); /* Adjust padding for tablets */
+        margin: var(--space-lg) auto var(--space-md);
+    }
+}
+
+@media (max-width: 576px) {
+    .back-button-container {
+        padding: 0 var(--space-md); /* Adjust padding for phones */
+        margin: var(--space-md) auto var(--space-sm);
+    }
+    .back-button {
+        width: 100%; /* Make button full width on small phones */
+        justify-content: center; /* Center content */
+        padding: var(--space-sm);
+    }
+}

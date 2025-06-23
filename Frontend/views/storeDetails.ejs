@@ -1,0 +1,42 @@
+<%- include('partials/header', { title: title }) %>
+<%- include('partials/navbar') %>
+
+<main class="main-content">
+    <div class="container-fluid back-button-container">
+        <button onclick="history.back()" class="btn btn-outline-secondary back-button">
+            <i class="fas fa-arrow-left"></i> Go Back
+        </button>
+    </div>
+
+    <section class="store-details">
+        <div class="store-header">
+            <img src="<%= store.logo %>" alt="<%= store.name %> Logo" class="store-details-logo">
+            <h1><%= store.name %></h1>
+        </div>
+        <p><strong>Location:</strong> <%= store.location %></p>
+        <p><strong>Description:</strong> <%= store.desc %></p>
+
+        <% if (user && user.role === 'store_owner') { %>
+            <a href="/dresses/add/<%= store._id %>" class="btn btn-success add-dress-btn">Add New Dress to This Store</a>
+        <% } %>
+
+        <h2 class="section-title">Dresses from <%= store.name %></h2>
+
+        <% if (dresses && dresses.length > 0) { %>
+            <div class="dress-grid">
+                <% dresses.forEach(function(dress) { %>
+                    <div class="dress-card">
+                        <img src="<%= dress.mainImage %>" alt="<%= dress.name %>" class="dress-image">
+                        <h3><%= dress.name %></h3>
+                        <p>Price: ₹<%= dress.price %></p>
+                        <a href="/dresses/<%= dress._id %>" class="btn btn-secondary">View Details</a>
+                    </div>
+                <% }); %>
+            </div>
+        <% } else { %>
+            <p>No dresses found for this store yet.</p>
+        <% } %>
+    </section>
+</main>
+
+<%- include('partials/footer') %>

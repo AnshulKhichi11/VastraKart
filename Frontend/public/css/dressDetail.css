@@ -1,0 +1,428 @@
+/* =====================================
+ * DRESS DETAILS PAGE - Simple & Professional
+ * ===================================== */
+.dress-details {
+    padding: var(--space-xl);
+    background: var(--bg-white);
+    border-radius: var(--radius-lg); /* Overall rounded corners for the main block */
+    box-shadow: 0 6px 20px var(--shadow-light); /* Soft, professional shadow */
+    margin-bottom: var(--space-xxl);
+    display: flex;
+    flex-wrap: wrap; /* Allows sections to wrap */
+    gap: var(--space-xl); /* Balanced gap between main sections */
+    max-width: 1360px; /* Standard width for content */
+    margin: var(--space-xxl) auto; /* Centered with clear vertical space */
+    border: 1px solid var(--border-color); /* Clean, defining border */
+}
+
+.dress-header {
+    width: 100%; /* Occupies full width */
+    text-align: center;
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-md);
+    border-bottom: 1px solid var(--border-color); /* Simple, crisp separator */
+}
+
+.dress-header h1 {
+    font-family: var(--font-heading); /* Use professional heading font */
+    font-size: clamp(2.5rem, 4vw, 3.5rem); /* Clear and prominent title */
+    color: var(--text-dark); /* Strong dark color for professionalism */
+    margin-bottom: var(--space-sm);
+    font-weight: 800; /* Bold impact */
+    line-height: 1.1;
+    letter-spacing: -0.02em; /* Subtle tightening */
+}
+
+.dress-header p {
+    font-family: var(--font-body); /* Use body font for paragraph */
+    font-size: clamp(1rem, 1.5vw, 1.1rem);
+    color: var(--text-medium);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.dress-header p a {
+    color: var(--primary-color); /* Link to store in primary brand color */
+    font-weight: 600;
+    text-decoration: none;
+    transition: color var(--transition-speed-fast) var(--transition-timing),
+                text-decoration var(--transition-speed-fast) var(--transition-timing);
+}
+
+.dress-header p a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+.dress-images {
+    flex: 3; /* Image section takes more space */
+    min-width: 380px; /* Sufficient width for images */
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    position: relative;
+    /* On desktop, this section doesn't need its own background/shadow/border as it's part of .dress-details */
+}
+
+.main-dress-image {
+    width: 100%;
+    height: clamp(400px, 60vh, 650px); /* Prominent main image */
+    object-fit: cover;
+    border-radius: var(--radius-md); /* Subtle rounded corners */
+    box-shadow: 0 4px 15px var(--shadow-light); /* Soft shadow for image */
+    cursor: pointer;
+    transition: transform var(--transition-speed-normal) var(--transition-timing),
+                box-shadow var(--transition-speed-normal) var(--transition-timing);
+}
+
+.main-dress-image:hover {
+    transform: scale(1.005); /* Very subtle zoom */
+    box-shadow: 0 6px 20px var(--shadow-medium); /* Slightly deeper shadow */
+}
+
+.other-images-grid {
+    display: flex;
+    gap: var(--space-sm); /* Standard spacing between thumbnails */
+    overflow-x: auto; /* Enable horizontal scrolling for many images */
+    padding-bottom: var(--space-xs); /* Ensures scrollbar doesn't overlap content */
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-color) transparent;
+    padding-left: var(--space-xxs); /* Slight padding at ends */
+    padding-right: var(--space-xxs);
+}
+
+.other-images-grid::-webkit-scrollbar {
+    height: 8px; /* Standard scrollbar height */
+}
+
+.other-images-grid::-webkit-scrollbar-thumb {
+    background-color: var(--secondary-color); /* Thumb matches secondary color */
+    border-radius: 10px;
+    border: 2px solid transparent; /* Padding around thumb */
+    background-clip: padding-box;
+}
+.other-images-grid::-webkit-scrollbar-track {
+    background-color: var(--bg-light); /* Light track */
+    border-radius: 10px;
+}
+
+.other-dress-image {
+    width: 100px; /* Standard thumbnail size */
+    height: 100px;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+    border: 2px solid var(--border-color); /* Clean border */
+    cursor: pointer;
+    transition: border-color var(--transition-speed-fast) var(--transition-timing),
+                transform var(--transition-speed-fast) var(--transition-timing);
+    flex-shrink: 0;
+}
+
+.other-dress-image:hover,
+.other-dress-image.active {
+    border-color: var(--primary-color); /* Highlight with primary color */
+    transform: translateY(-1px); /* Subtle lift */
+    box-shadow: 0 2px 8px var(--shadow-light); /* Soft shadow */
+}
+.other-dress-image.active {
+    border-color: var(--primary-dark); /* Darker primary when active/selected */
+}
+
+
+.dress-info {
+    flex: 2; /* Info section takes less space */
+    min-width: 350px; /* Sufficient width for info */
+    padding: var(--space-md); /* Internal padding */
+    /* On desktop, this section doesn't need its own background/shadow/border as it's part of .dress-details */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.dress-info-content p {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    margin-bottom: var(--space-sm);
+    line-height: 1.6;
+    color: var(--text-medium);
+}
+
+.dress-info-content p strong {
+    color: var(--text-dark);
+    min-width: 130px; /* Align labels */
+    display: inline-block; /* Keep labels and values on same line on desktop */
+    font-weight: 600;
+}
+
+.dress-info-content p.price {
+    font-family: var(--font-heading); /* Price uses heading font */
+    font-size: clamp(2rem, 3vw, 2.8rem); /* Prominent, readable price */
+    font-weight: 700;
+    color: var(--text-dark); /* Price in dark text for professionalism */
+    margin: var(--space-md) 0;
+    text-align: center;
+    padding-bottom: var(--space-md);
+    border-bottom: 1px solid var(--border-color); /* Clean separator */
+}
+
+.dress-actions {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--border-color); /* Clean separator */
+    flex-wrap: wrap;
+}
+
+.dress-actions .btn {
+    min-width: 180px; /* Standard button width */
+    padding: 14px 28px; /* Good padding for clickability */
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-speed-fast) var(--transition-timing);
+    box-shadow: 0 2px 8px var(--shadow-light); /* Subtle button shadow */
+}
+
+/* Specific button styles */
+.dress-actions .btn-secondary {
+    background-color: var(--secondary-color);
+    color: var(--bg-white);
+    border: 1px solid var(--secondary-color);
+}
+.dress-actions .btn-secondary:hover {
+    background-color: var(--secondary-dark);
+    border-color: var(--secondary-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px var(--shadow-medium);
+}
+.dress-actions .btn-secondary:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 5px var(--shadow-light) inset;
+}
+
+.dress-actions .btn-danger {
+    background-color: var(--accent-danger);
+    color: var(--bg-white);
+    border: 1px solid var(--accent-danger);
+}
+.dress-actions .btn-danger:hover {
+    background-color: #c82333; /* Slightly darker red */
+    border-color: #bd2130;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px var(--shadow-medium);
+}
+.dress-actions .btn-danger:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 5px var(--shadow-light) inset;
+}
+
+/* --- Back Button Styles (aligned with professional theme) --- */
+.back-button-container {
+    max-width: 1360px; /* Match main content width */
+    margin: var(--space-xl) auto var(--space-lg);
+    padding: 0 var(--space-xl);
+}
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-sm) var(--space-md);
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: var(--radius-sm);
+    background-color: var(--bg-white);
+    color: var(--text-medium);
+    border: 1px solid var(--border-color);
+    transition: all var(--transition-speed-fast) var(--transition-timing);
+    box-shadow: 0 1px 4px var(--shadow-extra-light); /* Very subtle shadow */
+}
+
+.back-button:hover {
+    background-color: var(--bg-light);
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    box-shadow: 0 2px 8px var(--shadow-light);
+}
+
+.back-button:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 5px var(--shadow-extra-light) inset;
+}
+
+.back-button i {
+    font-size: 1.1rem;
+    color: var(--text-medium); /* Icon color matches text */
+}
+
+
+/* =====================================
+ * MOBILE-SPECIFIC ADJUSTMENTS (Simple & Professional Responsive)
+ * ===================================== */
+
+/* Media query for tablets and larger phones (e.g., up to 991px) */
+@media (max-width: 991px) {
+    .dress-details {
+        flex-direction: column; /* Stack image and info vertically */
+        padding: var(--space-lg); /* Maintain comfortable padding */
+        gap: var(--space-lg); /* Keep a decent gap between stacked sections */
+        margin: var(--space-lg) auto; /* Adjust outer margins */
+        border-radius: var(--radius-md); /* Slightly less aggressive rounding */
+        box-shadow: 0 4px 15px var(--shadow-light); /* Consistent shadow */
+    }
+
+    .dress-header {
+        margin-bottom: var(--space-lg);
+        padding-bottom: var(--space-md);
+    }
+    .dress-header h1 {
+        font-size: clamp(2rem, 5vw, 2.8rem); /* Dynamic and readable title */
+    }
+    .dress-header p {
+        font-size: 0.95rem;
+    }
+
+    /* --- IMPORTANT FOR "NO DOUBLE LAYERING" --- */
+    .dress-images,
+    .dress-info {
+        min-width: 100%; /* Take full width when stacked */
+        padding: 0; /* Remove internal padding here if dress-details already has padding */
+        background: transparent; /* Ensure no extra background color */
+        border: none; /* Remove any individual borders */
+        box-shadow: none; /* Remove any individual shadows */
+    }
+
+    /* Re-apply shadow specifically to the main image for prominence */
+    .main-dress-image {
+        box-shadow: 0 3px 10px var(--shadow-medium);
+        height: clamp(350px, 60vw, 500px); /* Optimal height range */
+    }
+
+    .other-images-grid {
+        justify-content: center; /* Center thumbnails */
+        padding-left: var(--space-md); /* Add consistent padding */
+        padding-right: var(--space-md);
+    }
+    .other-dress-image {
+        width: 90px;
+        height: 90px;
+        border-width: 2px;
+    }
+
+    .dress-info {
+        padding: var(--space-lg); /* Provide padding only on the info section when stacked */
+        background: var(--bg-white); /* Ensure info section has a clean white background */
+        border-radius: var(--radius-md); /* Apply its own rounding */
+        box-shadow: 0 4px 15px var(--shadow-light); /* Apply its own shadow */
+        margin-top: var(--space-md); /* Clear separation from image section */
+    }
+    .dress-info-content p.price {
+        font-size: clamp(1.8rem, 4.5vw, 2.5rem); /* Scale price dynamically */
+        margin: var(--space-md) 0;
+        padding-bottom: var(--space-sm);
+    }
+    /* Stack labels for better readability on smaller screens */
+    .dress-info-content p strong {
+        display: block;
+        min-width: unset;
+        margin-bottom: var(--space-xxs);
+    }
+
+    .dress-actions {
+        flex-direction: column; /* Stack buttons vertically */
+        align-items: center; /* Center stacked buttons */
+        margin-top: var(--space-lg);
+        padding-top: var(--space-md);
+    }
+
+    .dress-actions .btn {
+        width: 100%; /* Full width buttons for easy tapping */
+        max-width: 320px; /* Cap button width for aesthetics on wider tablets */
+        padding: var(--space-md);
+        font-size: 1rem;
+    }
+
+    /* Back button adjustments */
+    .back-button-container {
+        padding: 0 var(--space-lg);
+        margin: var(--space-lg) auto var(--space-md);
+    }
+    .back-button {
+        padding: var(--space-md) var(--space-lg);
+        font-size: 0.95rem;
+    }
+}
+
+/* Media query for smaller phones (e.g., up to 576px) */
+@media (max-width: 576px) {
+    .dress-details {
+        padding: var(--space-md);
+        margin: var(--space-md) var(--space-sm); /* More padding from sides */
+        border-radius: var(--radius-md);
+        box-shadow: 0 3px 12px var(--shadow-light);
+    }
+
+    .dress-header {
+        margin-bottom: var(--space-md);
+        padding-bottom: var(--space-sm);
+    }
+    .dress-header h1 {
+        font-size: clamp(1.6rem, 8vw, 2.2rem);
+    }
+    .dress-header p {
+        font-size: 0.85rem;
+    }
+
+    .main-dress-image {
+        height: clamp(280px, 70vw, 400px);
+    }
+    .other-images-grid {
+        gap: var(--space-sm);
+        padding-left: var(--space-md);
+        padding-right: var(--space-md);
+    }
+    .other-dress-image {
+        width: 70px;
+        height: 70px;
+        border-width: 1px; /* Thinner border for small thumbnails */
+    }
+
+    .dress-info {
+        padding: var(--space-md);
+        margin-top: var(--space-sm);
+    }
+    .dress-info-content p {
+        font-size: 0.9rem;
+    }
+    .dress-info-content p.price {
+        font-size: clamp(1.6rem, 7vw, 2.2rem);
+        margin: var(--space-md) 0;
+        padding-bottom: var(--space-xs);
+    }
+
+    .dress-actions {
+        margin-top: var(--space-lg);
+        padding-top: var(--space-md);
+    }
+    .dress-actions .btn {
+        max-width: 100%;
+        padding: var(--space-sm) var(--space-md);
+        font-size: 0.95rem;
+        min-width: unset; /* Allow buttons to shrink on very small screens */
+    }
+
+    /* Back button adjustments for very small screens */
+    .back-button-container {
+        padding: 0 var(--space-md);
+        margin: var(--space-md) auto var(--space-sm);
+    }
+    .back-button {
+        width: 100%;
+        justify-content: center;
+        padding: var(--space-sm);
+        font-size: 0.9rem;
+    }
+}

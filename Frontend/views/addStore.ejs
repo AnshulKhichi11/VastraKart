@@ -1,0 +1,29 @@
+<%- include('partials/header', { title: title }) %>
+<%- include('partials/navbar') %> 
+
+<main class="form-container">
+    <div class="form-card">
+        <h2>Add Your New Store</h2>
+        <form action="/stores/add" method="POST">
+            <div class="form-group">
+                <label for="name">Store Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="location">Location (e.g., Street, Area, City):</label>
+                <input type="text" id="location" name="location" required>
+            </div>
+            <div class="form-group">
+                <label for="logo">Logo URL:</label>
+                <input type="url" id="logo" name="logo" placeholder="e.g., https://example.com/logo.jpg">
+            </div>
+            <div class="form-group">
+                <label for="desc">Description:</label>
+                <textarea id="desc" name="desc" rows="5" placeholder="Tell us about your store..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Store</button>
+        </form>
+    </div>
+</main>
+
+<%- include('partials/footer') %>

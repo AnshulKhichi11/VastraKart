@@ -1,0 +1,336 @@
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1; /* Allows it to take up available vertical space */
+    padding: 40px 20px; /* Ample padding around the form */
+    width: 100%; /* Ensure it spans full width */
+}
+
+/* --- Authentication Form Card --- */
+.auth-form {
+    background: var(--form-bg);
+    padding: 50px 45px; /* Generous internal padding */
+    border-radius: 12px; /* Smoothly rounded corners */
+    box-shadow: 0 10px 30px var(--shadow-md); /* Noticeable depth */
+    width: 100%;
+    max-width: 460px; /* Optimal width for readability and elegance */
+    box-sizing: border-box; /* Ensures padding doesn't increase width */
+    text-align: center;
+    position: relative; /* For potential pseudo-elements or complex layouts */
+    overflow: hidden;
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; /* Smooth hover effects */
+}
+
+.auth-form:hover {
+    transform: translateY(-5px); /* Subtle lift on hover */
+    box-shadow: 0 15px 45px var(--shadow-lg); /* Deeper shadow on hover */
+}
+
+/* Heading Style */
+.auth-form h2 {
+    color: var(--heading-color);
+    margin-bottom: 35px;
+    font-size: 2.2rem; /* Responsive font size */
+    font-weight: 700;
+    letter-spacing: -0.04em; /* Tighten letter spacing for headings */
+    position: relative;
+    padding-bottom: 15px; /* Space for the underline */
+}
+
+.auth-form h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 70px; /* Stylish underline length */
+    height: 4px;
+    background-color: var(--primary-brand-color);
+    border-radius: 2px;
+}
+
+/* --- Optional: Logo/Brand Space --- */
+/* Add this HTML: <div class="logo-area"><img src="/path/to/your/logo.svg" alt="Vastrakart Logo"></div> */
+.logo-area {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50px; /* Ensure space even if no logo */
+}
+.logo-area img {
+    max-height: 60px; /* Adjust as needed */
+    width: auto;
+}
+.logo-area span { /* For text-based logo */
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--primary-brand-color);
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+
+/* --- Flash Messages --- */
+.flash-message {
+    padding: 18px 25px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-align: left;
+    border: 1px solid transparent;
+    opacity: 0; /* Start hidden for animation */
+    transform: translateY(10px); /* Start slightly below */
+    animation: fadeInSlideUp 0.6s forwards ease-out; /* Animation on load */
+}
+
+/* Specific flash message colors */
+.flash-message.error {
+    background-color: var(--error-bg);
+    color: var(--error-text);
+    border-color: darken(var(--error-bg), 5%);
+}
+.flash-message.success {
+    background-color: var(--success-bg);
+    color: var(--success-text);
+    border-color: darken(var(--success-bg), 5%);
+}
+.flash-message.info {
+    background-color: var(--info-bg);
+    color: var(--info-text);
+    border-color: darken(var(--info-bg), 5%);
+}
+
+/* Flash message animation keyframes */
+@keyframes fadeInSlideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* --- Form Groups (Label + Input/Select) --- */
+.form-group {
+    margin-bottom: 25px; /* Spacing between form fields */
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+/* Input & Select Field Styling */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="password"],
+.form-group select {
+    width: 100%;
+    padding: 15px 18px; /* Comfortable padding */
+    border: 1px solid var(--border-color);
+    border-radius: 8px; /* Consistent rounding */
+    font-size: 1rem; /* Readable font size */
+    color: var(--text-primary);
+    background-color: #ffffff; /* Clean white background */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    -webkit-appearance: none; /* Reset default browser styles */
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* Placeholder Text Styling */
+.form-group input::placeholder {
+    color: var(--placeholder-color);
+    font-style: italic;
+    opacity: 1; /* Ensure full visibility */
+}
+
+/* Focus State Styling for Inputs & Selects */
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--primary-brand-color);
+    box-shadow: 0 0 0 4px var(--focus-ring); /* Clean, subtle glow */
+    outline: none; /* Remove default outline */
+    background-color: #ffffff;
+}
+
+/* Select Dropdown Arrow Customization */
+.form-group select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23aebacd' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 1em;
+    padding-right: 40px; /* Space for the custom arrow */
+}
+
+/* --- Buttons --- */
+.btn1 {
+    display: block; /* Make button full width */
+    padding: 16px 25px; /* Generous padding for a prominent button */
+    border-radius: 8px; /* Match form elements */
+    font-size: 1.1rem; /* Readable button text */
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+    letter-spacing: 0.5px; /* Slight letter spacing for appeal */
+    border: none; /* Remove default button border */
+    position: relative;
+    overflow: hidden; /* For any internal effects like ripple */
+}
+
+.btn1-primary {
+    background-color: var(--primary-brand-color);
+    color: #ffffff;
+    margin-top: 30px;
+    box-shadow: 0 8px 20px rgba(106, 5, 114, 0.25); /* Shadow matching primary color */
+}
+
+.btn1-primary:hover {
+    background-color: var(--primary-brand-hover);
+    transform: translateY(-4px); /* Slightly more lift */
+    box-shadow: 0 12px 25px rgba(106, 5, 114, 0.35);
+}
+
+.btn1-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 5px 10px rgba(106, 5, 114, 0.2);
+    /* Subtle ripple effect on click (optional, can be complex with pure CSS) */
+    /* Add this if you want a simple click animation: */
+    /* background-color: var(--primary-brand-hover); */
+}
+
+/* --- Links below the form --- */
+.auth-form p {
+    margin-top: 30px;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+.auth-form p a {
+    color: var(--primary-brand-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.auth-form p a:hover {
+    color: var(--primary-brand-hover);
+    text-decoration: underline;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .auth-container {
+        padding: 30px 15px;
+    }
+
+    .auth-form {
+        padding: 40px 30px;
+        max-width: 95%; /* Allows form to be wider on smaller screens */
+        border-radius: 10px;
+        box-shadow: 0 8px 25px var(--shadow-sm);
+    }
+    .auth-form:hover {
+        transform: translateY(-3px); /* Less aggressive lift */
+        box-shadow: 0 10px 30px var(--shadow-md);
+    }
+
+    .auth-form h2 {
+        font-size: 2rem;
+        margin-bottom: 25px;
+        padding-bottom: 10px;
+    }
+    .auth-form h2::after {
+        width: 60px;
+        height: 3px;
+    }
+
+    .flash-message {
+        padding: 15px 20px;
+        margin-bottom: 20px;
+        font-size: 0.9rem;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group input,
+    .form-group select {
+        padding: 14px 16px;
+        font-size: 0.95rem;
+    }
+
+    .form-group select {
+        padding-right: 35px;
+    }
+
+    .btn1 {
+        padding: 14px 20px;
+        font-size: 1rem;
+        margin-top: 25px;
+    }
+
+    .auth-form p {
+        margin-top: 25px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .auth-container {
+        padding: 20px 10px;
+    }
+
+    .auth-form {
+        padding: 30px 20px;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px var(--shadow-sm);
+    }
+
+    .auth-form h2 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+        padding-bottom: 8px;
+    }
+    .auth-form h2::after {
+        width: 50px;
+        height: 2px;
+    }
+
+    .flash-message {
+        padding: 12px 15px;
+        font-size: 0.85rem;
+    }
+
+    .form-group input,
+    .form-group select {
+        padding: 12px 14px;
+        font-size: 0.9rem;
+        border-radius: 6px;
+    }
+
+    .form-group select {
+        padding-right: 30px;
+    }
+
+    .btn1 {
+        padding: 12px 18px;
+        font-size: 0.95rem;
+        margin-top: 20px;
+    }
+
+    .auth-form p {
+        margin-top: 20px;
+        font-size: 0.85rem;
+    }
+}
